@@ -17,9 +17,13 @@ echo
 echo "Set DEFCONFIG"
 echo 
 make O=out omega_defconfig
+PATH="/home/kristof/android/clang/bin:/home/kristof/android/aarch64-linux-android-4.9/bin:${PATH}"
 
 echo
 echo "Build The Kernel"
 echo 
 
-make O=out -j8
+make -j$(nproc --all) O=out \
+                      CC=clang \
+                      CLANG_TRIPLE=aarch64-linux-gnu- \
+                      CROSS_COMPILE=aarch64-linux-android-
