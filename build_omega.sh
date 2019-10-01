@@ -17,7 +17,8 @@ echo
 echo "Set DEFCONFIG"
 echo 
 make O=out omega_defconfig
-PATH="/home/kristof/android/clang/bin:/home/kristof/android/aarch64-linux-android-4.9/bin:${PATH}"
+export PATH="/home/kristof/android/clang/bin:/home/kristof/android/aarch64-linux-android-4.9/bin:${PATH}"
+export LD_LIBRARY_PATH="/home/kristof/android/clang/lib:/home/kristof/android/clang/lib64:$LD_LIBRARY_PATH"
 
 echo
 echo "Build The Kernel"
